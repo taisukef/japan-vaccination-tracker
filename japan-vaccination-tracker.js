@@ -1,6 +1,6 @@
 import L from "https://code4sabae.github.io/leaflet-mjs/leaflet.mjs";
 import * as luxon from "https://taisukef.github.io/luxon/src/luxon.js";
-//import { CSV } from "https://js.sabae.cc/CSV.js";
+import { CSV } from "https://js.sabae.cc/CSV.js";
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
 
@@ -65,8 +65,7 @@ function refreshLines(data, dict) {
 const [geojson, data, vaccination] = await Promise.all([
   loadJSON('prefectures.geojson'),
   loadJSON('prefectures.json'),
-  loadJSON('https://nagi-p.com/vaccination/prefecture.json'),
-  //loadCSV('https://code4fukui.github.io/covid19vaccine/latest.csv'),
+  loadCSV('https://code4fukui.github.io/covid19vaccine/latest.csv'),
 ]);
 
 const frontera = L.geoJson(geojson, {
